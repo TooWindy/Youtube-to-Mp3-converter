@@ -10,11 +10,6 @@ export default [
     js.configs.recommended,
     {
         rules: {
-            'no-unused-vars': 'warn',
-        },
-    },
-    {
-        rules: {
             'vue/script-indent': [
                 'error',
                 4,
@@ -28,6 +23,7 @@ export default [
             'indent': ['error', 4],
             'comma-dangle': ['error', 'always-multiline'],
             'semi': ['error', 'always'],
+            'no-unused-vars': 'warn',
             'space-infix-ops': ['error', {'int32Hint': true}],
         },
     },
