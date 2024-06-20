@@ -25,10 +25,12 @@
 import { ref } from 'vue'
 
 defineProps({
-  msg: String,
+  msg: String
 })
 
 const count = ref(0)
+
+const test = [10]
 
 </script>
 <style scoped>

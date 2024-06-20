@@ -1,5 +1,5 @@
 <script setup>
-import Converter from './components/Converter.vue'
+import BaseConverter from './components/BaseConverter.vue'
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import Converter from './components/Converter.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <Converter msg="Vite + Vue" />
+  <BaseConverter msg="Vite + Vue" />
 </template>
 
 <style scoped>
