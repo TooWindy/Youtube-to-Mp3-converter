@@ -28,6 +28,7 @@ export default [
             'indent': ['error', 4],
             'comma-dangle': ['error', 'always-multiline'],
             'semi': ['error', 'always'],
+            'space-infix-ops': ['error', {'int32Hint': true}],
         },
     },
 ];
