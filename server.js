@@ -11,4 +11,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', router);
 
 ViteExpress.listen(app, port, () => console.log('Server is listening...'));
+
 export default app;
