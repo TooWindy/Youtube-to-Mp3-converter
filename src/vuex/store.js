@@ -55,6 +55,7 @@ const actions = {
         } catch (err) {
             console.log(err);
         }
+        commit(SET_TITLE, 'Invalid Url! Try a different one');
         commit(SET_LOADING, false);
     },
 };
