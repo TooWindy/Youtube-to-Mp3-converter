@@ -53,9 +53,9 @@ const actions = {
             document.body.appendChild(link);
             link.click();
         } catch (err) {
+            commit(SET_TITLE, 'Invalid Url! Try a different one');
             console.log(err);
         }
-        commit(SET_TITLE, 'Invalid Url! Try a different one');
         commit(SET_LOADING, false);
     },
 };
