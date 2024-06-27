@@ -1,28 +1,29 @@
 <template>
-    <h1>{{ msg }}</h1>
-    <div class="card">
-        <p>Edit</p>
-    </div>
-    <p>
-        Check out
-        <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>
-        , the official Vue + Vite starter
-    </p>
-    <p>
-        Install
-        <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
-        in your IDE for a better DX
-    </p>
-    <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+    <h1>Youtube to MP3 converter</h1>
+    <h1>{{ title }}</h1>
+    <h3 v-if="isLoading">Loading...</h3>
+    <input v-model="ytLink" placeholder="Enter Link Here" />
+    <button @click="submit">Download</button>
 </template>
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
     props: {
         msg: String,
     },
+    data() {
+        return {
+            ytLink: '',
+        };
+    },
     computed: {
-        test() {
-            return 'this.String';
+        ...mapState(['title', 'isLoading', 'videoData']),
+    },
+    methods: {
+        ...mapActions(['downloadVideo']),
+        submit() {
+            this.downloadVideo(this.ytLink);
         },
     },
 };

@@ -1,7 +1,8 @@
 import express from 'express';
 import ytdl from 'ytdl-core';
 import fs from 'fs';
-import path, { dirname } from 'path';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 let router = express.Router();
 
@@ -32,7 +33,9 @@ router.route('/downloadVideo').post(async (req, res) => {
         const info = await ytdl.getInfo(videoUrl); //Query youtube video
         const title = info.videoDetails.title;
         //May want to sanitize and check for illegal characters in url
-        const videoPath = path.join(dirname, 'temp', `${title}.mp3`);
+        const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+        const __dirname = path.dirname(__filename); // get the name of the directory
+        const videoPath = path.join(__dirname, 'temp', `${title}.mp3`);
         const videoWriteStream = fs.createWriteStream(videoPath);
 
         ytdl(videoUrl, options).pipe(videoWriteStream);
