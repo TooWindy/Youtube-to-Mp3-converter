@@ -41,7 +41,7 @@ router.route('/downloadVideo').post(async (req, res) => {
         ytdl(videoUrl, options).pipe(videoWriteStream);
         videoWriteStream.on('finish', () => {
             res.download(videoPath, `${title}.mp3`, () => {
-                fs.unlinkSync(videoPath); //Delete file once its downloaded
+                // fs.unlinkSync(videoPath); //Delete file once its downloaded
             });
         });
     } catch (err) {
